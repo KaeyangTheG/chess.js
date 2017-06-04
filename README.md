@@ -429,6 +429,18 @@ var chess = new Chess();
 chess.move({ from: 'g2', to: 'g3' });
 // -> { color: 'w', from: 'g2', to: 'g3', flags: 'n', piece: 'p', san: 'g3' }
 ```
+In this fork you can pass in with options two relevant flags to expanding the moves that get accepted as legal.  
+
+```js
+// impossible position for chess-like game I want to play
+const position = '8/k7/1qb5/b7/8/8/8/8 b - - 0 40';
+const chess = new Chess(position);
+// by passing in the flag 'them' I am specifying that captures of black pieces are allowed (even though it is black to play)
+const options = {legal: false, them: 'b'};
+
+chess.move({ from: 'a7', to: 'b6' }, options); //without these options this move invocation returns null
+// -> { color: 'b', from: 'a7', to: 'b6', flags: 'c', piece: 'k', san: 'kxb6' }
+
 
 An optional sloppy flag can be used to parse a variety of non-standard move
 notations:

@@ -493,8 +493,8 @@ var Chess = function(fen) {
     }
 
     var moves = [];
-    var us = turn;
-    var them = swap_color(us);
+    var us = (options && options.us) || turn;
+    var them = (options && options.them) || swap_color(us);
     var second_rank = {b: RANK_7, w: RANK_2};
 
     var first_sq = SQUARES.a8;
@@ -562,7 +562,7 @@ var Chess = function(fen) {
             if (board[square] == null) {
               add_move(board, moves, i, square, BITS.NORMAL);
             } else {
-              if (board[square].color === us) break;
+              if (board[square].color !== them) break;
               add_move(board, moves, i, square, BITS.CAPTURE);
               break;
             }
@@ -1565,7 +1565,7 @@ var Chess = function(fen) {
       if (typeof move === 'string') {
         move_obj = move_from_san(move, sloppy);
       } else if (typeof move === 'object') {
-        var moves = generate_moves();
+        var moves = generate_moves(options);
 
         /* convert the pretty move object to an ugly move object */
         for (var i = 0, len = moves.length; i < len; i++) {

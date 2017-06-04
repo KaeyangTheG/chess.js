@@ -4,7 +4,7 @@
   "description": "A Javascript chess library for chess move generation/validation, piece placement/movement, and check/checkmate/draw detection",
   "author": "Jeff Hlywa <jhlywa@gmail.com> (https://github.com/jhlywa)",
   "license": "BSD-2-Clause",
-  "homepage": "https://github.com/jhlywa/chess.js",
+  "homepage": "https://github.com/KaeyangTheG/chess.js",
   "keywords": [
     "chess"
   ],
@@ -12,7 +12,7 @@
   "filename": "chess.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhlywa/chess.js.git"
+    "url": "https://github.com/KaeyangTheG/chess.js.git"
   },
   "npmName": "chess.js",
   "npmFileMap": [
